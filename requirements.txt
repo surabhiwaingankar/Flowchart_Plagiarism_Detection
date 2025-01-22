@@ -1,2 +1,5 @@
 streamlit
 pillow
+networkx
+scikit-learn
+matplotlib 
