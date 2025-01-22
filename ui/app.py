@@ -18,7 +18,7 @@ def compare_images(img1, img2):
 st.title("Flowchart Similarity Checker")
 
 # Instructions
-st.write("Upload two flowchart images to compare their similarity. Select the context of the comparison for better insights.")
+st.write("A tool to compare flowcharts and determine if they are plagiarized.")
 
 # Input fields
 col1, col2 = st.columns(2)
