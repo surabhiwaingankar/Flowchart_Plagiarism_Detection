@@ -3,3 +3,7 @@ pillow
 networkx
 scikit-learn
 matplotlib 
+numpy
+easyocr
+ultralytics
+opencv-python
