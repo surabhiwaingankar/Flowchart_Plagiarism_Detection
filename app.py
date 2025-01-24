@@ -5,7 +5,7 @@ from datetime import datetime
 from functionality.predict import inspect_raw_detections
 from functionality.utils.visualize_detection import visualize_prediction
 from functionality.utils.shapes_arrows_separation import separate_shapes_and_arrows
-from functionality.utils.sort_shapes import context_aware_text_matching
+from functionality.utils.match_text_to_shape import shape_text_matching
 from functionality.utils.arrow_analysis import enhanced_arrow_connection_analysis
 from functionality.graph import final_flowchart_structure
 from functionality.overall_similarity import graph_similarity
@@ -28,8 +28,8 @@ def compare_images(img1_path, img2_path):
         shapes2, arrows2 = separate_shapes_and_arrows(detections2)
 
         # Arrange shapes
-        sorted_shapes1 = context_aware_text_matching(img1_path, shapes1)
-        sorted_shapes2 = context_aware_text_matching(img2_path, shapes2)
+        sorted_shapes1 = shape_text_matching(img1_path, shapes1)
+        sorted_shapes2 = shape_text_matching(img2_path, shapes2)
 
         # Analyze arrows
         adjacency1, shape_details1, sorted_shapes1 = enhanced_arrow_connection_analysis(

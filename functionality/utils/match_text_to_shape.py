@@ -2,7 +2,7 @@ import cv2
 import easyocr
 import numpy as np
 
-def context_aware_text_matching(test_image_path, shapes):
+def shape_text_matching(test_image_path, shapes):
     reader = easyocr.Reader(["en"])
     image = cv2.imread(test_image_path)
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
