@@ -89,10 +89,10 @@ category = st.selectbox(
 
 # Define thresholds for each category
 thresholds = {
-    "Patent": 60,  # High similarity threshold for patents
-    "Research Papers": 70,  # Moderate similarity threshold for research papers
+    "Patent": 70,  # High similarity threshold for patents
+    "Research Papers": 75,  # Moderate similarity threshold for research papers
     "Book Publishing": 80,  # Lower threshold for book publishing
-    "Reports": 90,  # Lowest threshold for reports
+    "Reports": 85,  # Lowest threshold for reports
 }
 
 # Compare button
