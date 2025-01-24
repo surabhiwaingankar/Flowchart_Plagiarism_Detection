@@ -65,7 +65,7 @@ UPLOAD_DIR = "uploaded_images"
 
 # Create the directory if it doesn't exist
 if not os.path.exists(UPLOAD_DIR):
-    os.makedirs(UPLOAD_DIR)
+    os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # Streamlit UI
 st.title("Flowchart Similarity Checker")
@@ -119,11 +119,13 @@ if st.button("Compare"):
                 threshold = thresholds[category]
 
                 # Display results
-                st.write(f"**Similarity Score:** {similarity:.2f}%")
-                if similarity >= threshold:  # Check against category-specific threshold
-                    st.error(f"Verdict: Plagiarized (Threshold: {threshold}%)")
+                st.write(f"**Similarity Score:** {similarity*100}%")
+                if (
+                    similarity * 100
+                ) >= threshold:  # Check against category-specific threshold
+                    st.error(f"Verdict: Plagiarized")
                 else:
-                    st.success(f"Verdict: Not Plagiarized (Threshold: {threshold}%)")
+                    st.success(f"Verdict: Not Plagiarized")
             else:
                 st.error("Unable to calculate similarity. Please try again.")
         except Exception as e:
