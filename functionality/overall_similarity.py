@@ -1,5 +1,6 @@
 from functionality.utils.graph_comparison import node_similarity, edge_similarity
 
+
 def graph_similarity(graph1, graph2):
     """
     Compute structural similarity between two graphs.
@@ -25,7 +26,7 @@ def graph_similarity(graph1, graph2):
     # Edge similarity
     edge_sim = edge_similarity(graph1, graph2)
 
-    Weighted combination of node and edge similarity
+    # Weighted combination of node and edge similarity
     print("Node similarity:", node_sim)
     print("Edge similarity:", edge_sim)
 
