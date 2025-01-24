@@ -31,18 +31,3 @@ def graph_similarity(graph1, graph2):
     print("Edge similarity:", edge_sim)
 
     return 0.6 * node_sim + 0.4 * edge_sim
-
-
-# # Main Workflow
-# graph1 = build_graph(shapes1, edges1)
-# graph2 = build_graph(shapes2, edges2)
-
-# # Calculate similarity score
-# similarity_score = graph_similarity(graph1, graph2)
-
-# print("Similarity Score:", similarity_score)
-
-# if(similarity_score>0.7):
-#     print("Graphs are similar")
-# else:
-#     print("Graphs are not similar")

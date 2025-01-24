@@ -47,17 +47,5 @@ def final_flowchart_structure(adjacency, shape_details, sorted_shapes):
         src_text = next(s['text'] for s in final_shapes if s['id'] == edge['source'])
         tgt_text = next(s['text'] for s in final_shapes if s['id'] == edge['target'])
         print(f"Source: {edge['source']} ({src_text}) → Target: {edge['target']} ({tgt_text})")
-
-# def main():
-#     dataset_path = '/content/drive/MyDrive/dataset'
-#     test_image_path = f'{dataset_path}/test/1.png'
-
-#     visualize_predictions(dataset_path)
-#     detections = inspect_raw_detections(dataset_path, test_image_path)
-#     shapes, arrows = separate_shapes_and_arrows(detections, YOLO(f'{dataset_path}/runs/detect/train/weights/best.pt'))
-#     shapes_sorted = context_aware_text_matching(dataset_path, test_image_path, shapes)
-#     adjacency, shape_details, sorted_shapes = enhanced_arrow_connection_analysis(shapes_sorted, arrows)
-#     final_flowchart_structure(adjacency, shape_details, sorted_shapes)
-
-# if __name__ == "__main__":
-#     main()
+    
+    return final_shapes, edges

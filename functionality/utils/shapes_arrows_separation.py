@@ -1,8 +1,11 @@
 import numpy as np
+from ultralytics import YOLO
 
-def separate_shapes_and_arrows(detections, model):
-    shape_classes = ['terminal', 'decision', 'process', 'input_output', 'print']
-    arrow_classes = ['down arrow', 'up arrow', 'left arrow', 'right arrow']
+model = YOLO("functionality/model.pt")
+
+def separate_shapes_and_arrows(detections):
+    shape_classes = ["terminal", "decision", "process", "input_output", "print"]
+    arrow_classes = ["down arrow", "up arrow", "left arrow", "right arrow"]
 
     shapes = []
     arrows = []
@@ -10,11 +13,13 @@ def separate_shapes_and_arrows(detections, model):
     for box in detections.boxes:
         class_name = model.names[int(box.cls)]
         element = {
-            'type': class_name,
-            'coords': box.xyxy[0].cpu().numpy(),
-            'center': (np.mean(box.xyxy[0].cpu().numpy()[0::2]),
-                      np.mean(box.xyxy[0].cpu().numpy()[1::2])),
-            'text': None
+            "type": class_name,
+            "coords": box.xyxy[0].cpu().numpy(),
+            "center": (
+                np.mean(box.xyxy[0].cpu().numpy()[0::2]),
+                np.mean(box.xyxy[0].cpu().numpy()[1::2]),
+            ),
+            "text": None,
         }
 
         if class_name in shape_classes:
