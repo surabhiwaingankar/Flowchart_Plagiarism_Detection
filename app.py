@@ -83,9 +83,17 @@ with col2:
 
 category = st.selectbox(
     "Select Comparison Context",
-    ["Patent", "Papers", "Reports", "Diagrams"],
+    ["Patent", "Research Papers", "Book Publishing", "Reports"],
     help="Choose the category that best matches the flowcharts being compared.",
 )
+
+# Define thresholds for each category
+thresholds = {
+    "Patent": 90,  # High similarity threshold for patents
+    "Research Papers": 80,  # Moderate similarity threshold for research papers
+    "Book Publishing": 70,  # Lower threshold for book publishing
+    "Reports": 60,  # Lowest threshold for reports
+}
 
 # Compare button
 if st.button("Compare"):
@@ -107,12 +115,15 @@ if st.button("Compare"):
             similarity = compare_images(img1_path, img2_path)
 
             if similarity is not None:
+                # Get the threshold for the selected category
+                threshold = thresholds[category]
+
                 # Display results
                 st.write(f"**Similarity Score:** {similarity:.2f}%")
-                if similarity > 80:  # Threshold for plagiarism
-                    st.error("Verdict: Plagiarized")
+                if similarity >= threshold:  # Check against category-specific threshold
+                    st.error(f"Verdict: Plagiarized (Threshold: {threshold}%)")
                 else:
-                    st.success("Verdict: Not Plagiarized")
+                    st.success(f"Verdict: Not Plagiarized (Threshold: {threshold}%)")
             else:
                 st.error("Unable to calculate similarity. Please try again.")
         except Exception as e:
