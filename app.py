@@ -7,7 +7,7 @@ from functionality.utils.visualize_detection import visualize_prediction
 from functionality.utils.shapes_arrows_separation import separate_shapes_and_arrows
 from functionality.utils.match_text_to_shape import shape_text_matching
 from functionality.utils.arrow_analysis import enhanced_arrow_connection_analysis
-from functionality.graph import final_flowchart_structure
+from functionality.graph import final_graph_structure
 from functionality.overall_similarity import graph_similarity
 from functionality.utils.graph_builder import build_graph
 
@@ -40,10 +40,10 @@ def compare_images(img1_path, img2_path):
         )
 
         # Build graph
-        shapes1, edges1 = final_flowchart_structure(
+        shapes1, edges1 = final_graph_structure(
             adjacency1, shape_details1, sorted_shapes1
         )
-        shapes2, edges2 = final_flowchart_structure(
+        shapes2, edges2 = final_graph_structure(
             adjacency2, shape_details2, sorted_shapes2
         )
 

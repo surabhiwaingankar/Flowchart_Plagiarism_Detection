@@ -1,7 +1,7 @@
 from collections import deque
 from functionality.utils.find_start_node import find_start_node
 
-def final_flowchart_structure(adjacency, shape_details, sorted_shapes):
+def final_graph_structure(adjacency, shape_details, sorted_shapes):
     print("\n=== FINAL FLOWCHART STRUCTURE ===")
 
     start_node = find_start_node(sorted_shapes)
